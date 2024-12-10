@@ -79,8 +79,8 @@ public class TarefaService {
   public void deletarTarefa(Long id, TarefaDTO dtoDeletar) {
 
     try {
-      Tarefa tarefa = tarefaRepository.findById(id)
-          .orElseThrow(() -> new RuntimeException("Tarefa não encontrato"));
+      // Tarefa tarefa = tarefaRepository.findById(id)
+      //     .orElseThrow(() -> new RuntimeException("Tarefa não encontrato"));
 
       logger.info("*** Deletar tarefa -> ID: {}, Titulo: -> {}", id, dtoDeletar.getTitulo());
 
