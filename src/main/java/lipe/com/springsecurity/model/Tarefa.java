@@ -12,6 +12,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 
 @Entity
 public class Tarefa {
@@ -30,6 +31,7 @@ public class Tarefa {
   @Column(name = "data_criacao", nullable = false, updatable = false)
   private LocalDateTime dateCriacao;
 
+  @PrePersist
   protected void onCreate() {
     this.dateCriacao = LocalDateTime.now();
   }
