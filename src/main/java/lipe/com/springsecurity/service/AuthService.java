@@ -1,14 +1,16 @@
 package lipe.com.springsecurity.service;
 
+import java.util.Date;
+
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.oauth2.jose.jws.SignatureAlgorithm;
-import org.springframework.security.oauth2.jwt.Jwt;
-import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.stereotype.Service;
+
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
 
 import lipe.com.springsecurity.model.Usuario;
 import lipe.com.springsecurity.repository.UsuarioRepository;
@@ -28,10 +30,9 @@ public class AuthService implements UserDetailsService {
     this.passwordEncoder = passwordEncoder;
   }
 
-  private JwtDecoder jwtDecoder;
-
-  public AuthService(JwtDecoder jwtDecoder) {
-    this.jwtDecoder = jwtDecoder;
+  public Usuario resgistrarUsuario(Usuario usuario) {
+    usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
+    return usuarioRepository.save(usuario);
   }
 
   @Override
@@ -47,24 +48,22 @@ public class AuthService implements UserDetailsService {
   }
 
   public String login(String username, String password) {
-    
+    Usuario usuario = usuarioRepository.findByUsername(username)
+        .orElseThrow(() -> new UsernameNotFoundException("usuario não encontrado"));
+    if (!passwordEncoder.matches(password, usuario.getPassword())) {
+      throw new IllegalArgumentException("senha errada");
     }
-  
+    return genJWT(usuario.getUsername());
+  }
 
- 
-  /*
-   * // Método para registrar novo usuário
-   * public Usuario registrarNovoUsuario(Usuario usuario) {
-   * // Criptografa senha antes de salvar
-   * usuario.setPassword(
-   * passwordEncoder.encode(usuario.getPassword())
-   * );
-   * return usuarioRepository.save(usuario);
-   * }
-   */
-  public Usuario resgistrarUsuario(Usuario usuario) {
-    usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
-    return usuarioRepository.save(usuario);
+  private String genJWT(String username) {
+    Algorithm algorithm = Algorithm.HMAC512("token");
+    return JWT.create()
+        .withSubject(username)
+        .withIssuedAt(new Date())
+        .withExpiresAt(new Date(System.currentTimeMillis() + 5))
+        .withClaim("roles", "USER")
+        .sign(algorithm);
   }
 
 }
