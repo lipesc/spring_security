@@ -1,5 +1,6 @@
 package lipe.com.springsecurity.service;
 
+import java.util.Arrays;
 import java.util.Date;
 
 import org.springframework.security.core.userdetails.User;
@@ -17,22 +18,12 @@ import lipe.com.springsecurity.repository.UsuarioRepository;
 
 @Service
 public class AuthService implements UserDetailsService {
-
   private UsuarioRepository usuarioRepository;
-
-  public AuthService(UsuarioRepository usuarioRepository) {
-    this.usuarioRepository = usuarioRepository;
-  }
-
   private PasswordEncoder passwordEncoder;
 
-  public AuthService(PasswordEncoder passwordEncoder) {
+  public AuthService(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder) {
+    this.usuarioRepository = usuarioRepository;
     this.passwordEncoder = passwordEncoder;
-  }
-
-  public Usuario resgistrarUsuario(Usuario usuario) {
-    usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
-    return usuarioRepository.save(usuario);
   }
 
   @Override
@@ -47,6 +38,13 @@ public class AuthService implements UserDetailsService {
         .build();
   }
 
+  public Usuario resgistrarUsuario(Usuario usuario) {
+    usuario.setUsername((usuario.getUsername()));
+    usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
+    usuario.setRoles(Arrays.asList("USER"));
+    return usuarioRepository.save(usuario);
+  }
+
   public String login(String username, String password) {
     Usuario usuario = usuarioRepository.findByUsername(username)
         .orElseThrow(() -> new UsernameNotFoundException("usuario não encontrado"));
@@ -57,7 +55,9 @@ public class AuthService implements UserDetailsService {
   }
 
   private String genJWT(String username) {
-    Algorithm algorithm = Algorithm.HMAC512("token");
+    String secret = System.getenv("JWT_SECRET");
+
+    Algorithm algorithm = Algorithm.HMAC512(secret);
     return JWT.create()
         .withSubject(username)
         .withIssuedAt(new Date())
