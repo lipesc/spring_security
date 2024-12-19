@@ -77,6 +77,11 @@
 			<artifactId>java-jwt</artifactId>
 			<version>4.2.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 		</dependencies>
 
 	<build>
@@ -87,5 +92,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

@@ -8,10 +8,10 @@ public class TarefaDTO {
   private String descrisao;
   private StatusTarefa status;
 
-  public TarefaDTO(Long id, String titulo, String descrisao, StatusTarefa status) {
+  public TarefaDTO(Long id, String titulo, String descricao, StatusTarefa status) {
     this.id = id;
     this.titulo = titulo;
-    this.descrisao = descrisao;
+    this.descrisao = descricao;
     this.status = status;
   }
 

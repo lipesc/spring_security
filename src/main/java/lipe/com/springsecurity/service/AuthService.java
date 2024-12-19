@@ -1,8 +1,11 @@
 package lipe.com.springsecurity.service;
 
-import java.util.Arrays;
+// import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -39,9 +42,18 @@ public class AuthService implements UserDetailsService {
   }
 
   public Usuario resgistrarUsuario(Usuario usuario) {
+
+    if (usuarioRepository.findByUsername(usuario.getUsername()) != null) {
+      throw new Error("Username ja cadastrado, escolha outro nome");
+    }
+
     usuario.setUsername((usuario.getUsername()));
     usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
-    usuario.setRoles(Arrays.asList("USER"));
+
+    if (usuario.getRoles() == null || usuario.getRoles().isEmpty()) {
+      usuario.setRoles(List.of("USER"));
+    }
+
     return usuarioRepository.save(usuario);
   }
 
@@ -61,7 +73,7 @@ public class AuthService implements UserDetailsService {
     return JWT.create()
         .withSubject(username)
         .withIssuedAt(new Date())
-        .withExpiresAt(new Date(System.currentTimeMillis() + 5))
+        .withExpiresAt(new Date(System.currentTimeMillis() + 3600000))
         .withClaim("roles", "USER")
         .sign(algorithm);
   }
