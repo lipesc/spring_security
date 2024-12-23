@@ -38,17 +38,21 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
       String username = decodedJWT.getSubject();
       String[] roles = decodedJWT.getClaim("roles").asArray(String.class);
 
-      List<SimpleGrantedAuthority> authorities = Arrays.stream(roles)
-          .map(SimpleGrantedAuthority::new)
-          .toList();
+      if (roles != null) {
+        List<SimpleGrantedAuthority> authorities = Arrays.stream(roles)
+            .map(SimpleGrantedAuthority::new)
+            .toList();
 
-      UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
-          username, null, authorities);
-      authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
+            username, null, authorities);
+        authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
-      SecurityContextHolder.getContext().setAuthentication(authentication);
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+      } else {
+        // Log a warning if roles are null
+        logger.warn("JWT token does not contain roles");
+      }
     }
-
     filterChain.doFilter(request, response);
   }
 

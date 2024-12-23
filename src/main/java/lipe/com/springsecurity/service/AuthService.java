@@ -61,13 +61,13 @@ public class AuthService implements UserDetailsService {
     if (!passwordEncoder.matches(password, usuario.getPassword())) {
       throw new IllegalArgumentException("Senha errada");
     }
-    return genJWT(usuario.getUsername());
+    return genJWT(usuario.getUsername(), usuario.getRoles().toArray(new String[0]));
   }
 
-  private String genJWT(String username) {
+  private String genJWT(String username, String[] roles) {
     String secret = System.getenv("JWT_SECRET");
     if (secret == null || secret.isEmpty()) {
-      throw new IllegalStateException("JWT_SECRET environment variable not set");
+      throw new IllegalStateException("JWT_SECRET env nao criada");
     }
 
     Algorithm algorithm = Algorithm.HMAC512(secret);
@@ -75,7 +75,7 @@ public class AuthService implements UserDetailsService {
         .withSubject(username)
         .withIssuedAt(new Date())
         .withExpiresAt(new Date(System.currentTimeMillis() + 3600000)) // 1 hour expiry
-
+        .withArrayClaim("roles", roles)
         .sign(algorithm);
   }
 }
