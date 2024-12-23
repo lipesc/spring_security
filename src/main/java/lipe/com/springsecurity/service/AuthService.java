@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,6 +21,7 @@ import lipe.com.springsecurity.repository.UsuarioRepository;
 
 @Service
 public class AuthService implements UserDetailsService {
+  private final String secretKey = System.getenv("JWT_SECRET");
 
   private final UsuarioRepository usuarioRepository;
   private final PasswordEncoder passwordEncoder;
@@ -51,26 +54,27 @@ public class AuthService implements UserDetailsService {
     if (usuario.getRoles() == null || usuario.getRoles().isEmpty()) {
       usuario.setRoles(List.of("USER"));
     }
-
-    return usuarioRepository.save(usuario);
+    Usuario savedUser = usuarioRepository.save(usuario);
+    return savedUser;
   }
 
   public String login(String username, String password) {
     Usuario usuario = usuarioRepository.findByUsername(username)
-        .orElseThrow(() -> new UsernameNotFoundException("Usuario não encontrado"));
+        .orElseThrow(() -> new UsernameNotFoundException("Usuario nao encontrado"));
     if (!passwordEncoder.matches(password, usuario.getPassword())) {
       throw new IllegalArgumentException("Senha errada");
     }
-    return genJWT(usuario.getUsername(), usuario.getRoles().toArray(new String[0]));
+    String token = genJWT(usuario.getUsername(), usuario.getRoles().toArray(new String[0]));
+    return token;
   }
 
   private String genJWT(String username, String[] roles) {
-    String secret = System.getenv("JWT_SECRET");
-    if (secret == null || secret.isEmpty()) {
-      throw new IllegalStateException("JWT_SECRET env nao criada");
+
+    if (secretKey == null || secretKey.isEmpty()) {
+      throw new IllegalStateException("secretKey env nao criada ou encontrada");
     }
 
-    Algorithm algorithm = Algorithm.HMAC512(secret);
+    Algorithm algorithm = Algorithm.HMAC256(secretKey);
     return JWT.create()
         .withSubject(username)
         .withIssuedAt(new Date())

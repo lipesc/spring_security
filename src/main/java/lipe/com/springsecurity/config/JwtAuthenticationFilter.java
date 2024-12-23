@@ -10,7 +10,6 @@ import jakarta.servlet.http.*;
 import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
-import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
@@ -24,7 +23,6 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import java.util.Arrays;
 
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
-
   private final String secretKey = System.getenv("JWT_SECRET");
 
   @Override
@@ -32,31 +30,37 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
       @NonNull FilterChain filterChain)
       throws ServletException, IOException {
     String jwt = getJwtFromRequest(request);
-    if (StringUtils.hasText(jwt) && validateToken(jwt)) {
-      DecodedJWT decodedJWT = JWT.require(Algorithm.HMAC512(secretKey)).build().verify(jwt);
 
-      String username = decodedJWT.getSubject();
-      String[] roles = decodedJWT.getClaim("roles").asArray(String.class);
+    if (StringUtils.hasText(jwt)) {
+      if (validateToken(jwt)) {
+        DecodedJWT decodedJWT = JWT.require(Algorithm.HMAC256(secretKey)).build().verify(jwt);
 
-      if (roles != null) {
-        List<SimpleGrantedAuthority> authorities = Arrays.stream(roles)
-            .map(SimpleGrantedAuthority::new)
-            .toList();
+        String username = decodedJWT.getSubject();
+        String[] roles = decodedJWT.getClaim("roles").asArray(String.class);
 
-        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
-            username, null, authorities);
-        authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+        if (roles != null) {
+          List<SimpleGrantedAuthority> authorities = Arrays.stream(roles)
+              .map(SimpleGrantedAuthority::new)
+              .toList();
 
-        SecurityContextHolder.getContext().setAuthentication(authentication);
+          UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
+              username, null, authorities);
+          authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+
+          SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        } else {
+          logger.warn("JWT token nao contem roles");
+       }
       } else {
-        // Log a warning if roles are null
-        logger.warn("JWT token does not contain roles");
+        logger.warn("JWT token invalido ou ausente");
       }
+      filterChain.doFilter(request, response);
     }
-    filterChain.doFilter(request, response);
+
   }
 
-  private String getJwtFromRequest(@NonNull HttpServletRequest request) {
+  private String getJwtFromRequest(HttpServletRequest request) {
     String bearerToken = request.getHeader("Authorization");
     if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
       return bearerToken.substring(7);
@@ -66,7 +70,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
   private boolean validateToken(String token) {
     try {
-      JWT.require(Algorithm.HMAC512(secretKey)).build().verify(token);
+      JWT.require(Algorithm.HMAC256(secretKey)).build().verify(token);
       return true;
     } catch (Exception ex) {
       return false;

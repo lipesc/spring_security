@@ -24,13 +24,13 @@ public class AuthController {
 
   @PostMapping("/registrar")
   public ResponseEntity<Usuario> registrar(@RequestBody Usuario novoUsuario) {
-    authService.resgistrarUsuario(novoUsuario);
+    Usuario registeredUser = authService.resgistrarUsuario(novoUsuario);
 
-    return ResponseEntity.ok(novoUsuario);
+    return ResponseEntity.ok(registeredUser);
   }
 
   @PostMapping("/login")
-  public ResponseEntity<?> login(@RequestBody LoginUsers loginUsers) {
+  public ResponseEntity<JwtResponse> login(@RequestBody LoginUsers loginUsers) {
     String token = authService.login(loginUsers.getUsername(), loginUsers.getPassword());
     return ResponseEntity.ok(new JwtResponse(token));
   }
