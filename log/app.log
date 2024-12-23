@@ -533,6 +533,7 @@ Caused by: org.springframework.data.mapping.PropertyReferenceException: No prope
 	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:101) ~[spring-data-jpa-3.4.0.jar:3.4.0]
 	... 65 common frames omitted
 
+<<<<<<< HEAD
 2024-12-23T16:56:23.606-03:00  INFO 8216 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : Starting SpringsecurityApplication using Java 17.0.8 with PID 8216 (C:\Users\user\Programming\spring_security\springsecurity\target\classes started by lipe in C:\Users\user\Programming\spring_security\springsecurity)
 2024-12-23T16:56:23.615-03:00  INFO 8216 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : No active profile set, falling back to 1 default profile: "default"
 2024-12-23T16:56:23.739-03:00  INFO 8216 --- [springsecurity] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
@@ -604,12 +605,370 @@ Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Err
 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.0.jar:6.2.0]
 	... 26 common frames omitted
 Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tarefaRepository' defined in lipe.com.springsecurity.repository.TarefaRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List lipe.com.springsecurity.repository.TarefaRepository.findByUser_id(java.lang.Long); Reason: Failed to create query for method public abstract java.util.List lipe.com.springsecurity.repository.TarefaRepository.findByUser_id(java.lang.Long); No property 'user' found for type 'Tarefa'
+=======
+2024-12-18T22:34:01.792-03:00  INFO 5128 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : Starting SpringsecurityApplication using Java 17.0.8 with PID 5128 (C:\Users\user\Programming\spring_security\springsecurity\target\classes started by lipe in C:\Users\user\Programming\spring_security\springsecurity)
+2024-12-18T22:34:01.792-03:00  INFO 5128 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-12-18T22:34:01.911-03:00  INFO 5128 --- [springsecurity] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-12-18T22:34:01.911-03:00  INFO 5128 --- [springsecurity] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-12-18T22:34:03.750-03:00  INFO 5128 --- [springsecurity] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-18T22:34:03.948-03:00  INFO 5128 --- [springsecurity] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 177 ms. Found 2 JPA repository interfaces.
+2024-12-18T22:34:05.109-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-18T22:34:05.125-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-18T22:34:05.125-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-18T22:34:05.230-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-18T22:34:05.230-03:00  INFO 5128 --- [springsecurity] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3319 ms
+2024-12-18T22:34:06.143-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-18T22:34:06.209-03:00  INFO 5128 --- [springsecurity] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-18T22:34:06.665-03:00  INFO 5128 --- [springsecurity] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2f2e4cfd
+2024-12-18T22:34:06.665-03:00  INFO 5128 --- [springsecurity] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-18T22:34:08.386-03:00  INFO 5128 --- [springsecurity] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-18T22:34:09.193-03:00  WARN 5128 --- [springsecurity] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-18T22:34:09.243-03:00  INFO 5128 --- [springsecurity] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name authService
+2024-12-18T22:34:10.276-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
+2024-12-18T22:34:10.531-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-12-18T22:34:10.862-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-12-18T22:34:10.992-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-12-18T22:34:11.227-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-18T22:34:11.324-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-18T22:34:11.345-03:00  INFO 5128 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : Started SpringsecurityApplication in 10.317 seconds (process running for 11.383)
+2024-12-18T22:34:14.109-03:00  INFO 5128 --- [springsecurity] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-18T22:34:14.110-03:00  INFO 5128 --- [springsecurity] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-18T22:34:14.111-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-12-18T22:34:14.112-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-12-18T22:34:14.112-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-12-18T22:34:14.114-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@be93fca
+2024-12-18T22:34:14.117-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@46b6e15d
+2024-12-18T22:34:14.119-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-12-18T22:34:14.121-03:00  INFO 5128 --- [springsecurity] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2024-12-18T22:34:14.244-03:00  INFO 5128 --- [springsecurity] [http-nio-8080-exec-1] l.c.s.config.JwtAuthenticationFilter     : Token válido encontrado: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJub3ZvVXN1YXJpbzMiLCJyb2xlcyI6IlVTRVIiLCJleHAiOjE3MzQ1NzU0MjgsImlhdCI6MTczNDU3MTgyOH0.y6055CFxjB17A6b-vP07Jkp7iJz815nGOAaD9jNW2fOqKj7r-pYJg8syusquB_LTD22yOirFSx3pExMi0ljjdA
+2024-12-18T22:34:14.247-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/tarefas", parameters={}
+2024-12-18T22:34:14.261-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lipe.com.springsecurity.controller.TarefaController#criarTarefa(TarefaDTO)
+2024-12-18T22:34:14.396-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [lipe.com.springsecurity.dto.TarefaDTO@647d1664]
+2024-12-18T22:34:14.577-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-12-18T22:34:14.577-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lipe.com.springsecurity.model.Tarefa@6c28d831]
+2024-12-18T22:34:14.602-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-12-18T22:36:47.805-03:00  INFO 5128 --- [springsecurity] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+2024-12-18T22:36:47.815-03:00  INFO 5128 --- [springsecurity] [Thread-5] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-12-18T22:36:48.000-03:00  INFO 5128 --- [springsecurity] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2024-12-18T22:36:48.010-03:00  INFO 5128 --- [springsecurity] [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-18T22:36:48.050-03:00  INFO 5128 --- [springsecurity] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-18T22:36:48.097-03:00  INFO 5128 --- [springsecurity] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-18T22:36:48.328-03:00  INFO 5128 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : Starting SpringsecurityApplication using Java 17.0.8 with PID 5128 (C:\Users\user\Programming\spring_security\springsecurity\target\classes started by lipe in C:\Users\user\Programming\spring_security\springsecurity)
+2024-12-18T22:36:48.337-03:00  INFO 5128 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-12-18T22:36:48.881-03:00  INFO 5128 --- [springsecurity] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-18T22:36:48.933-03:00  INFO 5128 --- [springsecurity] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 39 ms. Found 2 JPA repository interfaces.
+2024-12-18T22:36:49.180-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-18T22:36:49.183-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-18T22:36:49.184-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-18T22:36:49.243-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-18T22:36:49.246-03:00  INFO 5128 --- [springsecurity] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 897 ms
+2024-12-18T22:36:49.342-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-18T22:36:49.342-03:00  INFO 5128 --- [springsecurity] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-12-18T22:36:49.376-03:00  INFO 5128 --- [springsecurity] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@434bacc3
+2024-12-18T22:36:49.376-03:00  INFO 5128 --- [springsecurity] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-12-18T22:36:49.544-03:00  INFO 5128 --- [springsecurity] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-18T22:36:49.706-03:00  WARN 5128 --- [springsecurity] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-18T22:36:49.729-03:00  INFO 5128 --- [springsecurity] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name authService
+2024-12-18T22:36:49.778-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
+2024-12-18T22:36:49.844-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-12-18T22:36:49.898-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-12-18T22:36:49.919-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-12-18T22:36:49.996-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-18T22:36:50.049-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-18T22:36:50.069-03:00  INFO 5128 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : Started SpringsecurityApplication in 1.832 seconds (process running for 170.107)
+2024-12-18T22:36:50.077-03:00  INFO 5128 --- [springsecurity] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-12-18T22:36:51.429-03:00  INFO 5128 --- [springsecurity] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+2024-12-18T22:36:51.430-03:00  INFO 5128 --- [springsecurity] [Thread-7] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-12-18T22:36:51.467-03:00  INFO 5128 --- [springsecurity] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2024-12-18T22:36:51.477-03:00  INFO 5128 --- [springsecurity] [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-18T22:36:51.477-03:00  INFO 5128 --- [springsecurity] [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-12-18T22:36:51.499-03:00  INFO 5128 --- [springsecurity] [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2024-12-18T22:36:51.678-03:00  INFO 5128 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : Starting SpringsecurityApplication using Java 17.0.8 with PID 5128 (C:\Users\user\Programming\spring_security\springsecurity\target\classes started by lipe in C:\Users\user\Programming\spring_security\springsecurity)
+2024-12-18T22:36:51.695-03:00  INFO 5128 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-12-18T22:36:52.172-03:00  INFO 5128 --- [springsecurity] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-18T22:36:52.195-03:00  INFO 5128 --- [springsecurity] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 2 JPA repository interfaces.
+2024-12-18T22:36:52.379-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-18T22:36:52.380-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-18T22:36:52.382-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-18T22:36:52.411-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-18T22:36:52.411-03:00  INFO 5128 --- [springsecurity] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 705 ms
+2024-12-18T22:36:52.493-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-18T22:36:52.493-03:00  INFO 5128 --- [springsecurity] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2024-12-18T22:36:52.516-03:00  INFO 5128 --- [springsecurity] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6d752490
+2024-12-18T22:36:52.526-03:00  INFO 5128 --- [springsecurity] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2024-12-18T22:36:52.641-03:00  INFO 5128 --- [springsecurity] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-18T22:36:52.807-03:00  WARN 5128 --- [springsecurity] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-18T22:36:52.823-03:00  INFO 5128 --- [springsecurity] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name authService
+2024-12-18T22:36:52.859-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
+2024-12-18T22:36:52.934-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-12-18T22:36:53.032-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-12-18T22:36:53.057-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-12-18T22:36:53.143-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-18T22:36:53.215-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-18T22:36:53.220-03:00  INFO 5128 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : Started SpringsecurityApplication in 1.607 seconds (process running for 173.258)
+2024-12-18T22:36:53.224-03:00  INFO 5128 --- [springsecurity] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-12-18T22:37:01.469-03:00  INFO 5128 --- [springsecurity] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-18T22:37:01.470-03:00  INFO 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-18T22:37:01.471-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-12-18T22:37:01.472-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-12-18T22:37:01.473-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-12-18T22:37:01.475-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@c17821b
+2024-12-18T22:37:01.492-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@351004fb
+2024-12-18T22:37:01.494-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-12-18T22:37:01.496-03:00  INFO 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 25 ms
+2024-12-18T22:37:01.503-03:00  INFO 5128 --- [springsecurity] [http-nio-8080-exec-2] l.c.s.config.JwtAuthenticationFilter     : Token válido encontrado: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJub3ZvVXN1YXJpbzMiLCJyb2xlcyI6IlVTRVIiLCJleHAiOjE3MzQ1NzU0MjgsImlhdCI6MTczNDU3MTgyOH0.y6055CFxjB17A6b-vP07Jkp7iJz815nGOAaD9jNW2fOqKj7r-pYJg8syusquB_LTD22yOirFSx3pExMi0ljjdA
+2024-12-18T22:37:01.518-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/tarefas", parameters={}
+2024-12-18T22:37:01.521-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lipe.com.springsecurity.controller.TarefaController#criarTarefa(TarefaDTO)
+2024-12-18T22:37:01.547-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [lipe.com.springsecurity.dto.TarefaDTO@7facaba0]
+2024-12-18T22:37:01.593-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-12-18T22:37:01.593-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lipe.com.springsecurity.model.Tarefa@40f4c6eb]
+2024-12-18T22:37:01.593-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-12-18T22:38:41.273-03:00  INFO 5128 --- [springsecurity] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+2024-12-18T22:38:41.273-03:00  INFO 5128 --- [springsecurity] [Thread-11] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-12-18T22:38:41.310-03:00  INFO 5128 --- [springsecurity] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2024-12-18T22:38:41.325-03:00  INFO 5128 --- [springsecurity] [Thread-11] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-18T22:38:41.325-03:00  INFO 5128 --- [springsecurity] [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2024-12-18T22:38:41.345-03:00  INFO 5128 --- [springsecurity] [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2024-12-18T22:38:41.538-03:00  INFO 5128 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : Starting SpringsecurityApplication using Java 17.0.8 with PID 5128 (C:\Users\user\Programming\spring_security\springsecurity\target\classes started by lipe in C:\Users\user\Programming\spring_security\springsecurity)
+2024-12-18T22:38:41.544-03:00  INFO 5128 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-12-18T22:38:42.209-03:00  INFO 5128 --- [springsecurity] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-18T22:38:42.259-03:00  INFO 5128 --- [springsecurity] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43 ms. Found 2 JPA repository interfaces.
+2024-12-18T22:38:42.623-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-18T22:38:42.624-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-18T22:38:42.641-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-18T22:38:42.714-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-18T22:38:42.726-03:00  INFO 5128 --- [springsecurity] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1161 ms
+2024-12-18T22:38:42.838-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-18T22:38:42.843-03:00  INFO 5128 --- [springsecurity] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2024-12-18T22:38:42.863-03:00  INFO 5128 --- [springsecurity] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6e4487cc
+2024-12-18T22:38:42.864-03:00  INFO 5128 --- [springsecurity] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2024-12-18T22:38:42.979-03:00  INFO 5128 --- [springsecurity] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-18T22:38:43.147-03:00  WARN 5128 --- [springsecurity] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-18T22:38:43.187-03:00  INFO 5128 --- [springsecurity] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name authService
+2024-12-18T22:38:43.353-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
+2024-12-18T22:38:43.621-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-12-18T22:38:43.677-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-12-18T22:38:43.687-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-12-18T22:38:43.732-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-18T22:38:43.743-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-18T22:38:43.743-03:00  INFO 5128 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : Started SpringsecurityApplication in 2.287 seconds (process running for 283.795)
+2024-12-18T22:38:43.761-03:00  INFO 5128 --- [springsecurity] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-12-18T22:38:55.405-03:00  INFO 5128 --- [springsecurity] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+2024-12-18T22:38:55.413-03:00  INFO 5128 --- [springsecurity] [Thread-15] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-12-18T22:38:55.445-03:00  INFO 5128 --- [springsecurity] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2024-12-18T22:38:55.445-03:00  INFO 5128 --- [springsecurity] [Thread-15] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-18T22:38:55.445-03:00  INFO 5128 --- [springsecurity] [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2024-12-18T22:38:55.463-03:00  INFO 5128 --- [springsecurity] [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2024-12-18T22:38:55.592-03:00  INFO 5128 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : Starting SpringsecurityApplication using Java 17.0.8 with PID 5128 (C:\Users\user\Programming\spring_security\springsecurity\target\classes started by lipe in C:\Users\user\Programming\spring_security\springsecurity)
+2024-12-18T22:38:55.592-03:00  INFO 5128 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-12-18T22:38:55.874-03:00  INFO 5128 --- [springsecurity] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-18T22:38:55.908-03:00  INFO 5128 --- [springsecurity] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 2 JPA repository interfaces.
+2024-12-18T22:38:56.099-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-18T22:38:56.100-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-18T22:38:56.101-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-18T22:38:56.125-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-18T22:38:56.125-03:00  INFO 5128 --- [springsecurity] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 514 ms
+2024-12-18T22:38:56.219-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-18T22:38:56.221-03:00  INFO 5128 --- [springsecurity] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2024-12-18T22:38:56.237-03:00  INFO 5128 --- [springsecurity] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1cf01fc3
+2024-12-18T22:38:56.238-03:00  INFO 5128 --- [springsecurity] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2024-12-18T22:38:56.342-03:00  INFO 5128 --- [springsecurity] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-18T22:38:56.442-03:00  WARN 5128 --- [springsecurity] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-18T22:38:56.451-03:00  INFO 5128 --- [springsecurity] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name authService
+2024-12-18T22:38:56.475-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
+2024-12-18T22:38:56.510-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-12-18T22:38:56.542-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-12-18T22:38:56.559-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-12-18T22:38:56.609-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-18T22:38:56.651-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-18T22:38:56.705-03:00  INFO 5128 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : Started SpringsecurityApplication in 1.154 seconds (process running for 296.743)
+2024-12-18T22:38:56.768-03:00  INFO 5128 --- [springsecurity] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-12-18T22:39:24.948-03:00  INFO 5128 --- [springsecurity] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-18T22:39:24.949-03:00  INFO 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-18T22:39:24.949-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-12-18T22:39:24.949-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-12-18T22:39:24.949-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-12-18T22:39:24.949-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@718c0c98
+2024-12-18T22:39:24.949-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@86a5180
+2024-12-18T22:39:24.949-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-12-18T22:39:24.949-03:00  INFO 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-12-18T22:39:24.962-03:00  INFO 5128 --- [springsecurity] [http-nio-8080-exec-2] l.c.s.config.JwtAuthenticationFilter     : Token válido encontrado: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJub3ZvVXN1YXJpbzMiLCJyb2xlcyI6IlVTRVIiLCJleHAiOjE3MzQ1NzU0MjgsImlhdCI6MTczNDU3MTgyOH0.y6055CFxjB17A6b-vP07Jkp7iJz815nGOAaD9jNW2fOqKj7r-pYJg8syusquB_LTD22yOirFSx3pExMi0ljjdA
+2024-12-18T22:39:24.966-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/tarefas", parameters={}
+2024-12-18T22:39:24.967-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lipe.com.springsecurity.controller.TarefaController#criarTarefa(TarefaDTO)
+2024-12-18T22:39:24.977-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [lipe.com.springsecurity.dto.TarefaDTO@2919b715]
+2024-12-18T22:39:25.024-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-12-18T22:39:25.025-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lipe.com.springsecurity.model.Tarefa@3dacee8e]
+2024-12-18T22:39:25.028-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-12-18T22:39:51.665-03:00  INFO 5128 --- [springsecurity] [http-nio-8080-exec-3] l.c.s.config.JwtAuthenticationFilter     : Token válido encontrado: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJub3ZvVXN1YXJpbzMiLCJyb2xlcyI6IlVTRVIiLCJleHAiOjE3MzQ1NzU0MjgsImlhdCI6MTczNDU3MTgyOH0.y6055CFxjB17A6b-vP07Jkp7iJz815nGOAaD9jNW2fOqKj7r-pYJg8syusquB_LTD22yOirFSx3pExMi0ljjdA
+2024-12-18T22:39:51.668-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/tarefas", parameters={}
+2024-12-18T22:39:51.674-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lipe.com.springsecurity.controller.TarefaController#criarTarefa(TarefaDTO)
+2024-12-18T22:39:51.683-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-3] o.s.web.method.HandlerMethod             : Could not resolve parameter [0] in public org.springframework.http.ResponseEntity<lipe.com.springsecurity.model.Tarefa> lipe.com.springsecurity.controller.TarefaController.criarTarefa(lipe.com.springsecurity.dto.TarefaDTO): JSON parse error: Unexpected character ('"' (code 34)): was expecting a colon to separate field name and value
+2024-12-18T22:39:51.706-03:00  WARN 5128 --- [springsecurity] [http-nio-8080-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('"' (code 34)): was expecting a colon to separate field name and value]
+2024-12-18T22:39:51.711-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2024-12-18T22:39:58.316-03:00  INFO 5128 --- [springsecurity] [http-nio-8080-exec-1] l.c.s.config.JwtAuthenticationFilter     : Token válido encontrado: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJub3ZvVXN1YXJpbzMiLCJyb2xlcyI6IlVTRVIiLCJleHAiOjE3MzQ1NzU0MjgsImlhdCI6MTczNDU3MTgyOH0.y6055CFxjB17A6b-vP07Jkp7iJz815nGOAaD9jNW2fOqKj7r-pYJg8syusquB_LTD22yOirFSx3pExMi0ljjdA
+2024-12-18T22:39:58.318-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/tarefas", parameters={}
+2024-12-18T22:39:58.319-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lipe.com.springsecurity.controller.TarefaController#criarTarefa(TarefaDTO)
+2024-12-18T22:39:58.321-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-1] o.s.web.method.HandlerMethod             : Could not resolve parameter [0] in public org.springframework.http.ResponseEntity<lipe.com.springsecurity.model.Tarefa> lipe.com.springsecurity.controller.TarefaController.criarTarefa(lipe.com.springsecurity.dto.TarefaDTO): JSON parse error: Unexpected character ('"' (code 34)): was expecting a colon to separate field name and value
+2024-12-18T22:39:58.323-03:00  WARN 5128 --- [springsecurity] [http-nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('"' (code 34)): was expecting a colon to separate field name and value]
+2024-12-18T22:39:58.324-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2024-12-18T22:40:12.958-03:00  WARN 5128 --- [springsecurity] [http-nio-8080-exec-4] l.c.s.config.JwtAuthenticationFilter     : Token inválido ou ausente
+2024-12-18T22:40:12.975-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/auth/login", parameters={}
+2024-12-18T22:40:12.976-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lipe.com.springsecurity.controller.AuthController#login(LoginUsers)
+2024-12-18T22:40:12.979-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [lipe.com.springsecurity.dto.LoginUsers@11dde136]
+2024-12-18T22:40:13.344-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-12-18T22:40:13.344-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lipe.com.springsecurity.dto.JwtResponse@2a1c09de]
+2024-12-18T22:40:13.344-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-12-18T22:40:21.026-03:00  INFO 5128 --- [springsecurity] [http-nio-8080-exec-6] l.c.s.config.JwtAuthenticationFilter     : Token válido encontrado: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJub3ZvVXN1YXJpbzMiLCJyb2xlcyI6IlVTRVIiLCJleHAiOjE3MzQ1NzYwMTMsImlhdCI6MTczNDU3MjQxM30.ImfsqYuNtZLeOwUOfKClK1BzcRo-Atf5M6SaXKaHLT4LzDd5oUqnIrU9sjjeZsdJTOCOeQzu8P06_KjNtQpRVA
+2024-12-18T22:40:21.028-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/tarefas", parameters={}
+2024-12-18T22:40:21.029-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lipe.com.springsecurity.controller.TarefaController#criarTarefa(TarefaDTO)
+2024-12-18T22:40:21.030-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-6] o.s.web.method.HandlerMethod             : Could not resolve parameter [0] in public org.springframework.http.ResponseEntity<lipe.com.springsecurity.model.Tarefa> lipe.com.springsecurity.controller.TarefaController.criarTarefa(lipe.com.springsecurity.dto.TarefaDTO): JSON parse error: Unexpected character ('"' (code 34)): was expecting a colon to separate field name and value
+2024-12-18T22:40:21.031-03:00  WARN 5128 --- [springsecurity] [http-nio-8080-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('"' (code 34)): was expecting a colon to separate field name and value]
+2024-12-18T22:40:21.032-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2024-12-18T22:41:30.679-03:00  INFO 5128 --- [springsecurity] [http-nio-8080-exec-5] l.c.s.config.JwtAuthenticationFilter     : Token válido encontrado: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJub3ZvVXN1YXJpbzMiLCJyb2xlcyI6IlVTRVIiLCJleHAiOjE3MzQ1NzQxMzYsImlhdCI6MTczNDU3MDUzNn0.5papXmE1ZN-jLkP1gZGYxrCkbDK8D4H4pSQCXmwFY372Ff4pSMnfcEq1TtG0s8We2qg46_WDyWMl6QGaHheXuQ
+2024-12-18T22:41:30.681-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/tarefas", parameters={}
+2024-12-18T22:41:30.683-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lipe.com.springsecurity.controller.TarefaController#listarTarefas()
+2024-12-18T22:41:30.712-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-12-18T22:41:30.713-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing [[lipe.com.springsecurity.model.Tarefa@2f1afb55, lipe.com.springsecurity.model.Tarefa@3bd05889, lipe. (truncated)...]
+2024-12-18T22:41:30.719-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-12-18T22:42:16.621-03:00  INFO 5128 --- [springsecurity] [http-nio-8080-exec-7] l.c.s.config.JwtAuthenticationFilter     : Token válido encontrado: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJub3ZvVXN1YXJpbzMiLCJyb2xlcyI6IlVTRVIiLCJleHAiOjE3MzQ1NzYwMTMsImlhdCI6MTczNDU3MjQxM30.ImfsqYuNtZLeOwUOfKClK1BzcRo-Atf5M6SaXKaHLT4LzDd5oUqnIrU9sjjeZsdJTOCOeQzu8P06_KjNtQpRVA
+2024-12-18T22:42:16.624-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/tarefas", parameters={}
+2024-12-18T22:42:16.624-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lipe.com.springsecurity.controller.TarefaController#criarTarefa(TarefaDTO)
+2024-12-18T22:42:16.628-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [lipe.com.springsecurity.dto.TarefaDTO@34352fc8]
+2024-12-18T22:42:16.675-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-12-18T22:42:16.676-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lipe.com.springsecurity.model.Tarefa@6f912e5a]
+2024-12-18T22:42:16.678-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-12-18T22:44:03.048-03:00  INFO 5128 --- [springsecurity] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-12-18T22:44:03.055-03:00  INFO 5128 --- [springsecurity] [Thread-19] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-12-18T22:44:03.328-03:00  INFO 5128 --- [springsecurity] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2024-12-18T22:44:03.332-03:00  INFO 5128 --- [springsecurity] [Thread-19] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-18T22:44:03.333-03:00  INFO 5128 --- [springsecurity] [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2024-12-18T22:44:03.345-03:00  INFO 5128 --- [springsecurity] [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2024-12-18T22:44:03.723-03:00  INFO 5128 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : Starting SpringsecurityApplication using Java 17.0.8 with PID 5128 (C:\Users\user\Programming\spring_security\springsecurity\target\classes started by lipe in C:\Users\user\Programming\spring_security\springsecurity)
+2024-12-18T22:44:03.733-03:00  INFO 5128 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-12-18T22:44:04.687-03:00  INFO 5128 --- [springsecurity] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-18T22:44:04.784-03:00  INFO 5128 --- [springsecurity] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 2 JPA repository interfaces.
+2024-12-18T22:44:05.107-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-18T22:44:05.120-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-18T22:44:05.121-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-18T22:44:05.179-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-18T22:44:05.181-03:00  INFO 5128 --- [springsecurity] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1413 ms
+2024-12-18T22:44:05.263-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-18T22:44:05.266-03:00  INFO 5128 --- [springsecurity] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2024-12-18T22:44:05.286-03:00  INFO 5128 --- [springsecurity] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6f3c3764
+2024-12-18T22:44:05.287-03:00  INFO 5128 --- [springsecurity] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2024-12-18T22:44:05.387-03:00  INFO 5128 --- [springsecurity] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-18T22:44:05.552-03:00  WARN 5128 --- [springsecurity] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-18T22:44:05.589-03:00  INFO 5128 --- [springsecurity] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name authService
+2024-12-18T22:44:05.619-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
+2024-12-18T22:44:05.664-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-12-18T22:44:05.709-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-12-18T22:44:05.777-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-12-18T22:44:05.827-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-18T22:44:05.843-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-18T22:44:05.843-03:00  INFO 5128 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : Started SpringsecurityApplication in 2.271 seconds (process running for 605.892)
+2024-12-18T22:44:05.843-03:00  INFO 5128 --- [springsecurity] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-12-18T22:44:07.272-03:00  INFO 5128 --- [springsecurity] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-12-18T22:44:07.272-03:00  INFO 5128 --- [springsecurity] [Thread-23] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-12-18T22:44:07.309-03:00  INFO 5128 --- [springsecurity] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2024-12-18T22:44:07.310-03:00  INFO 5128 --- [springsecurity] [Thread-23] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-18T22:44:07.310-03:00  INFO 5128 --- [springsecurity] [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2024-12-18T22:44:07.310-03:00  INFO 5128 --- [springsecurity] [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2024-12-18T22:44:07.441-03:00  INFO 5128 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : Starting SpringsecurityApplication using Java 17.0.8 with PID 5128 (C:\Users\user\Programming\spring_security\springsecurity\target\classes started by lipe in C:\Users\user\Programming\spring_security\springsecurity)
+2024-12-18T22:44:07.441-03:00  INFO 5128 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-12-18T22:44:07.720-03:00  INFO 5128 --- [springsecurity] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-18T22:44:07.742-03:00  INFO 5128 --- [springsecurity] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 2 JPA repository interfaces.
+2024-12-18T22:44:07.906-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-18T22:44:07.906-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-18T22:44:07.925-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-18T22:44:07.958-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-18T22:44:07.958-03:00  INFO 5128 --- [springsecurity] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 517 ms
+2024-12-18T22:44:08.125-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-18T22:44:08.146-03:00  INFO 5128 --- [springsecurity] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2024-12-18T22:44:08.199-03:00  INFO 5128 --- [springsecurity] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2d5a68dd
+2024-12-18T22:44:08.210-03:00  INFO 5128 --- [springsecurity] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2024-12-18T22:44:08.422-03:00  INFO 5128 --- [springsecurity] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-18T22:44:08.541-03:00  WARN 5128 --- [springsecurity] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-18T22:44:08.558-03:00  INFO 5128 --- [springsecurity] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name authService
+2024-12-18T22:44:08.607-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
+2024-12-18T22:44:08.652-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-12-18T22:44:08.693-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-12-18T22:44:08.693-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-12-18T22:44:08.744-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-18T22:44:08.759-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-18T22:44:08.759-03:00  INFO 5128 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : Started SpringsecurityApplication in 1.364 seconds (process running for 608.809)
+2024-12-18T22:44:08.759-03:00  INFO 5128 --- [springsecurity] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-12-18T22:44:12.310-03:00  INFO 5128 --- [springsecurity] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-12-18T22:44:12.348-03:00  INFO 5128 --- [springsecurity] [Thread-27] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-12-18T22:44:12.408-03:00  INFO 5128 --- [springsecurity] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2024-12-18T22:44:12.421-03:00  INFO 5128 --- [springsecurity] [Thread-27] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-18T22:44:12.426-03:00  INFO 5128 --- [springsecurity] [Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2024-12-18T22:44:12.426-03:00  INFO 5128 --- [springsecurity] [Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2024-12-18T22:44:12.575-03:00  INFO 5128 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : Starting SpringsecurityApplication using Java 17.0.8 with PID 5128 (C:\Users\user\Programming\spring_security\springsecurity\target\classes started by lipe in C:\Users\user\Programming\spring_security\springsecurity)
+2024-12-18T22:44:12.577-03:00  INFO 5128 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-12-18T22:44:12.887-03:00  INFO 5128 --- [springsecurity] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-18T22:44:12.928-03:00  INFO 5128 --- [springsecurity] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 2 JPA repository interfaces.
+2024-12-18T22:44:13.056-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-18T22:44:13.056-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-18T22:44:13.056-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-18T22:44:13.217-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-18T22:44:13.220-03:00  INFO 5128 --- [springsecurity] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 634 ms
+2024-12-18T22:44:13.358-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-18T22:44:13.360-03:00  INFO 5128 --- [springsecurity] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2024-12-18T22:44:13.375-03:00  INFO 5128 --- [springsecurity] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-8 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2a757107
+2024-12-18T22:44:13.376-03:00  INFO 5128 --- [springsecurity] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2024-12-18T22:44:13.490-03:00  INFO 5128 --- [springsecurity] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-18T22:44:13.608-03:00  WARN 5128 --- [springsecurity] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-18T22:44:13.608-03:00  INFO 5128 --- [springsecurity] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name authService
+2024-12-18T22:44:13.647-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
+2024-12-18T22:44:13.712-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-12-18T22:44:13.810-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-12-18T22:44:13.818-03:00 DEBUG 5128 --- [springsecurity] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-12-18T22:44:13.892-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-18T22:44:13.913-03:00  INFO 5128 --- [springsecurity] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-18T22:44:13.917-03:00  INFO 5128 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : Started SpringsecurityApplication in 1.389 seconds (process running for 613.956)
+2024-12-18T22:44:13.919-03:00  INFO 5128 --- [springsecurity] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-12-18T22:44:45.255-03:00  INFO 5128 --- [springsecurity] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-18T22:44:45.256-03:00  INFO 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-18T22:44:45.257-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-12-18T22:44:45.257-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-12-18T22:44:45.257-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-12-18T22:44:45.259-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@4bc98030
+2024-12-18T22:44:45.260-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@e88a45e
+2024-12-18T22:44:45.260-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-12-18T22:44:45.260-03:00  INFO 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2024-12-18T22:44:45.265-03:00  INFO 5128 --- [springsecurity] [http-nio-8080-exec-2] l.c.s.config.JwtAuthenticationFilter     : Token válido encontrado: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJub3ZvVXN1YXJpbzMiLCJyb2xlcyI6IlVTRVIiLCJleHAiOjE3MzQ1NzYwMTMsImlhdCI6MTczNDU3MjQxM30.ImfsqYuNtZLeOwUOfKClK1BzcRo-Atf5M6SaXKaHLT4LzDd5oUqnIrU9sjjeZsdJTOCOeQzu8P06_KjNtQpRVA
+2024-12-18T22:44:45.267-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/tarefas", parameters={}
+2024-12-18T22:44:45.267-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to lipe.com.springsecurity.controller.TarefaController#criarTarefa(TarefaDTO)
+2024-12-18T22:44:45.278-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [lipe.com.springsecurity.dto.TarefaDTO@7925d58d]
+2024-12-18T22:44:45.311-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-12-18T22:44:45.311-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [lipe.com.springsecurity.model.Tarefa@2f5d4887]
+2024-12-18T22:44:45.311-03:00 DEBUG 5128 --- [springsecurity] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2024-12-23T13:59:33.956-03:00  INFO 24941 --- [springsecurity] [main] l.c.s.SpringsecurityApplicationTests     : Starting SpringsecurityApplicationTests using Java 17.0.13 with PID 24941 (started by lipesc in /home/lipesc/projects/java_spring/spring_security)
+2024-12-23T13:59:33.959-03:00  INFO 24941 --- [springsecurity] [main] l.c.s.SpringsecurityApplicationTests     : No active profile set, falling back to 1 default profile: "default"
+2024-12-23T13:59:34.062-03:00 DEBUG 24941 --- [springsecurity] [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@160c3ec1
+2024-12-23T13:59:35.775-03:00  INFO 24941 --- [springsecurity] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-23T13:59:35.927-03:00  INFO 24941 --- [springsecurity] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 128 ms. Found 2 JPA repository interfaces.
+2024-12-23T13:59:38.024-03:00  INFO 24941 --- [springsecurity] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-23T13:59:38.097-03:00  INFO 24941 --- [springsecurity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-23T13:59:39.300-03:00 ERROR 24941 --- [springsecurity] [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2024-12-23T13:59:39.303-03:00 ERROR 24941 --- [springsecurity] [main] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+2024-12-23T13:59:39.304-03:00  WARN 24941 --- [springsecurity] [main] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+2024-12-23T13:59:39.366-03:00  INFO 24941 --- [springsecurity] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-12-23T13:59:39.397-03:00 ERROR 24941 --- [springsecurity] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+>>>>>>> be421f4478bba3bedb30cd1c922a91c442ff711c
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802) ~[spring-beans-6.2.0.jar:6.2.0]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601) ~[spring-beans-6.2.0.jar:6.2.0]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.0.jar:6.2.0]
 	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336) ~[spring-beans-6.2.0.jar:6.2.0]
 	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:288) ~[spring-beans-6.2.0.jar:6.2.0]
 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334) ~[spring-beans-6.2.0.jar:6.2.0]
+<<<<<<< HEAD
 	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.2.0.jar:6.2.0]
 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1568) ~[spring-beans-6.2.0.jar:6.2.0]
 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1514) ~[spring-beans-6.2.0.jar:6.2.0]
@@ -3894,3 +4253,255 @@ java.lang.NullPointerException: Cannot read the array length because "array" is 
 2024-12-23T18:15:52.212-03:00  INFO 1844 --- [springsecurity] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
 2024-12-23T18:15:52.216-03:00  INFO 1844 --- [springsecurity] [restartedMain] l.c.s.SpringsecurityApplication          : Started SpringsecurityApplication in 1.472 seconds (process running for 344.664)
 2024-12-23T18:15:52.218-03:00  INFO 1844 --- [springsecurity] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+=======
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204) ~[spring-beans-6.2.0.jar:6.2.0]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.0.jar:6.2.0]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.0.jar:6.2.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.0.jar:3.4.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.0.jar:3.4.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.0.jar:3.4.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137) ~[spring-boot-test-3.4.0.jar:3.4.0]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58) ~[spring-core-6.2.0.jar:6.2.0]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46) ~[spring-core-6.2.0.jar:6.2.0]
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1461) ~[spring-boot-3.4.0.jar:3.4.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:553) ~[spring-boot-test-3.4.0.jar:3.4.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137) ~[spring-boot-test-3.4.0.jar:3.4.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108) ~[spring-boot-test-3.4.0.jar:3.4.0]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.2.0.jar:6.2.0]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.2.0.jar:6.2.0]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.2.0.jar:6.2.0]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.2.0.jar:6.2.0]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.2.0.jar:6.2.0]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.2.0.jar:6.2.0]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:160) ~[spring-test-6.2.0.jar:6.2.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:378) ~[junit-jupiter-engine-5.11.3.jar:5.11.3]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:383) ~[junit-jupiter-engine-5.11.3.jar:5.11.3]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$12(ClassBasedTestDescriptor.java:378) ~[junit-jupiter-engine-5.11.3.jar:5.11.3]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[na:na]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.11.3.jar:5.11.3]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$7(ClassBasedTestDescriptor.java:290) ~[junit-jupiter-engine-5.11.3.jar:5.11.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:289) ~[junit-jupiter-engine-5.11.3.jar:5.11.3]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:279) ~[junit-jupiter-engine-5.11.3.jar:5.11.3]
+	at java.base/java.util.Optional.orElseGet(Optional.java:364) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$6(ClassBasedTestDescriptor.java:278) ~[junit-jupiter-engine-5.11.3.jar:5.11.3]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31) ~[junit-jupiter-engine-5.11.3.jar:5.11.3]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$1(TestMethodTestDescriptor.java:105) ~[junit-jupiter-engine-5.11.3.jar:5.11.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:104) ~[junit-jupiter-engine-5.11.3.jar:5.11.3]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:68) ~[junit-jupiter-engine-5.11.3.jar:5.11.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:128) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:128) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.11.3.jar:1.11.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.11.3.jar:1.11.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.11.3.jar:1.11.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.11.3.jar:1.11.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.11.3.jar:1.11.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.11.3.jar:1.11.3]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.11.3.jar:1.11.3]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.11.3.jar:1.11.3]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.11.3.jar:1.11.3]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.5.2.jar:3.5.2]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184) ~[surefire-junit-platform-3.5.2.jar:3.5.2]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148) ~[surefire-junit-platform-3.5.2.jar:3.5.2]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122) ~[surefire-junit-platform-3.5.2.jar:3.5.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.5.2.jar:3.5.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.5.2.jar:3.5.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.5.2.jar:3.5.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.5.2.jar:3.5.2]
+Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:276) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:226) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:194) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.0.jar:6.2.0]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.0.jar:6.2.0]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.0.jar:6.2.0]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.0.jar:6.2.0]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.0.jar:6.2.0]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1849) ~[spring-beans-6.2.0.jar:6.2.0]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1798) ~[spring-beans-6.2.0.jar:6.2.0]
+	... 95 common frames omitted
+Caused by: org.hibernate.HibernateException: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:191) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:87) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentWithDefaults(JdbcEnvironmentInitiator.java:181) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:392) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:129) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:81) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	... 110 common frames omitted
+
+2024-12-23T13:59:39.414-03:00  WARN 24941 --- [springsecurity] [main] o.s.test.context.TestContextManager      : Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener] to prepare test instance [lipe.com.springsecurity.SpringsecurityApplicationTests@1d637673]
+
+java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@25109608 testClass = lipe.com.springsecurity.SpringsecurityApplicationTests, locations = [], classes = [lipe.com.springsecurity.SpringsecurityApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = ["org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true"], contextCustomizers = [org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6fa51cd4, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@cecf639, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@6be968ce, org.springframework.boot.test.web.reactor.netty.DisableReactorResourceFactoryGlobalResourcesContextCustomizerFactory$DisableReactorResourceFactoryGlobalResourcesContextCustomizerCustomizer@61c4eee0, org.springframework.boot.test.autoconfigure.OnFailureConditionReportContextCustomizerFactory$OnFailureConditionReportContextCustomizer@548a24a, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@2a8448fa, org.springframework.test.context.support.DynamicPropertiesContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestAnnotation@2123b003], resourceBasePath = "src/main/webapp", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:180) ~[spring-test-6.2.0.jar:6.2.0]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.2.0.jar:6.2.0]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.2.0.jar:6.2.0]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.2.0.jar:6.2.0]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.2.0.jar:6.2.0]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:160) ~[spring-test-6.2.0.jar:6.2.0]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:378) ~[junit-jupiter-engine-5.11.3.jar:5.11.3]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:383) ~[junit-jupiter-engine-5.11.3.jar:5.11.3]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$12(ClassBasedTestDescriptor.java:378) ~[junit-jupiter-engine-5.11.3.jar:5.11.3]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[na:na]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.11.3.jar:5.11.3]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$7(ClassBasedTestDescriptor.java:290) ~[junit-jupiter-engine-5.11.3.jar:5.11.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:289) ~[junit-jupiter-engine-5.11.3.jar:5.11.3]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:279) ~[junit-jupiter-engine-5.11.3.jar:5.11.3]
+	at java.base/java.util.Optional.orElseGet(Optional.java:364) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$6(ClassBasedTestDescriptor.java:278) ~[junit-jupiter-engine-5.11.3.jar:5.11.3]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31) ~[junit-jupiter-engine-5.11.3.jar:5.11.3]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$1(TestMethodTestDescriptor.java:105) ~[junit-jupiter-engine-5.11.3.jar:5.11.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:104) ~[junit-jupiter-engine-5.11.3.jar:5.11.3]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:68) ~[junit-jupiter-engine-5.11.3.jar:5.11.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:128) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:128) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.11.3.jar:1.11.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.11.3.jar:1.11.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.11.3.jar:1.11.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.11.3.jar:1.11.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.11.3.jar:1.11.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.11.3.jar:1.11.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.11.3.jar:1.11.3]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.11.3.jar:1.11.3]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.11.3.jar:1.11.3]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.11.3.jar:1.11.3]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.5.2.jar:3.5.2]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184) ~[surefire-junit-platform-3.5.2.jar:3.5.2]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148) ~[surefire-junit-platform-3.5.2.jar:3.5.2]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122) ~[surefire-junit-platform-3.5.2.jar:3.5.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.5.2.jar:3.5.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.5.2.jar:3.5.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.5.2.jar:3.5.2]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.5.2.jar:3.5.2]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802) ~[spring-beans-6.2.0.jar:6.2.0]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601) ~[spring-beans-6.2.0.jar:6.2.0]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.0.jar:6.2.0]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336) ~[spring-beans-6.2.0.jar:6.2.0]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:288) ~[spring-beans-6.2.0.jar:6.2.0]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334) ~[spring-beans-6.2.0.jar:6.2.0]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204) ~[spring-beans-6.2.0.jar:6.2.0]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.0.jar:6.2.0]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.0.jar:6.2.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.0.jar:3.4.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.0.jar:3.4.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.0.jar:3.4.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137) ~[spring-boot-test-3.4.0.jar:3.4.0]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58) ~[spring-core-6.2.0.jar:6.2.0]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46) ~[spring-core-6.2.0.jar:6.2.0]
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1461) ~[spring-boot-3.4.0.jar:3.4.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:553) ~[spring-boot-test-3.4.0.jar:3.4.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137) ~[spring-boot-test-3.4.0.jar:3.4.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108) ~[spring-boot-test-3.4.0.jar:3.4.0]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.2.0.jar:6.2.0]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.2.0.jar:6.2.0]
+	... 75 common frames omitted
+Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:276) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:226) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:194) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.0.jar:6.2.0]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.0.jar:6.2.0]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.0.jar:6.2.0]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.0.jar:6.2.0]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.0.jar:6.2.0]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1849) ~[spring-beans-6.2.0.jar:6.2.0]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1798) ~[spring-beans-6.2.0.jar:6.2.0]
+	... 95 common frames omitted
+Caused by: org.hibernate.HibernateException: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:191) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:87) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentWithDefaults(JdbcEnvironmentInitiator.java:181) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:392) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:129) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:81) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-6.6.2.Final.jar:6.6.2.Final]
+	... 110 common frames omitted
+
+>>>>>>> be421f4478bba3bedb30cd1c922a91c442ff711c
