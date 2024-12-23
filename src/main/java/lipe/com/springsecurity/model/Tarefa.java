@@ -21,6 +21,9 @@ public class Tarefa {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
+  @Column(name = "user_id", nullable = false)
+  private Long userId;
+
   private String titulo;
 
   private String descricao;
@@ -29,54 +32,72 @@ public class Tarefa {
   private StatusTarefa status = StatusTarefa.Pendente;
 
   @Column(name = "data_criacao", nullable = false, updatable = false)
-  private LocalDateTime dateCriacao;
+  private LocalDateTime date_criacao;
 
   @PrePersist
   protected void onCreate() {
-    this.dateCriacao = LocalDateTime.now();
+    this.date_criacao = LocalDateTime.now();
   }
 
   public Tarefa() {
   }
 
-  public Tarefa(Long id, String titulo, String descricao, StatusTarefa status, LocalDateTime dateCriacao) {
+  public Tarefa(Long id, Long user_id, String titulo, String descricao, StatusTarefa status,
+      LocalDateTime date_criacao) {
     this.id = id;
+    this.userId = user_id;
     this.titulo = titulo;
     this.descricao = descricao;
     this.status = status;
-    this.dateCriacao = dateCriacao;
-  }
-
-  public void setTitulo(String titulo) {
-    this.titulo = titulo;
-  }
-
-  public void setDescricao(String descricao) {
-    this.descricao = descricao;
-  }
-
-  public void setStatus(StatusTarefa status) {
-    this.status = status;
+    this.date_criacao = date_criacao;
   }
 
   public Long getId() {
     return id;
   }
 
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public Long getUserId() {
+    return userId;
+  }
+
+  public void setUserId(Long userId) {
+    this.userId = userId;
+  }
+
   public String getTitulo() {
     return titulo;
+  }
+
+  public void setTitulo(String titulo) {
+    this.titulo = titulo;
   }
 
   public String getDescricao() {
     return descricao;
   }
 
+  public void setDescricao(String descricao) {
+    this.descricao = descricao;
+  }
+
   public StatusTarefa getStatus() {
     return status;
   }
 
-  public LocalDateTime getDateCriacao() {
-    return dateCriacao;
+  public void setStatus(StatusTarefa status) {
+    this.status = status;
+  }
+
+  public LocalDateTime getDate_criacao() {
+    return date_criacao;
+  }
+
+  public void setDate_criacao(LocalDateTime date_criacao) {
+    this.date_criacao = date_criacao;
   }
 
   public enum StatusTarefa {

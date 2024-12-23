@@ -11,4 +11,6 @@ import lipe.com.springsecurity.model.Tarefa.StatusTarefa;
 @Repository
 public interface TarefaRepository extends JpaRepository<Tarefa, Long> {
   List<Tarefa> findByStatus(StatusTarefa status);
+
+  List<Tarefa> findByUserId(Long userId);
 }
