@@ -1,6 +1,7 @@
 HELP.md
 *.http
 log/app.log
+sample.http
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
