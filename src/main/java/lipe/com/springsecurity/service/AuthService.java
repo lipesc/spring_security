@@ -2,7 +2,6 @@ package lipe.com.springsecurity.service;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,67 +20,65 @@ import lipe.com.springsecurity.repository.UsuarioRepository;
 
 @Service
 public class AuthService implements UserDetailsService {
-  String secretKey = System.getenv("JWT_SECRET");
-  private static final Logger logger = LoggerFactory.getLogger(AuthService.class);
+    String secretKey = System.getenv("JWT_SECRET");
+    private static final Logger logger = LoggerFactory.getLogger(AuthService.class);
 
-  private final UsuarioRepository usuarioRepository;
-  private final PasswordEncoder passwordEncoder;
+    private final UsuarioRepository usuarioRepository;
+    private final PasswordEncoder passwordEncoder;
 
-  public AuthService(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder) {
-    this.usuarioRepository = usuarioRepository;
-    this.passwordEncoder = passwordEncoder;
-  }
-
-  @Override
-  public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    Usuario usuario = usuarioRepository.findByUsername(username)
-        .orElseThrow(() -> new UsernameNotFoundException("Usuario não encontrado"));
-
-    return User.builder()
-        .username(usuario.getUsername())
-        .password(usuario.getPassword())
-        .roles(usuario.getRoles().toArray(new String[0]))
-        .build();
-  }
-
-  public Usuario resgistrarUsuario(Usuario usuario) {
-
-    if (usuarioRepository.findByUsername(usuario.getUsername()) != null) {
-      throw new Error("Username ja cadastrado, escolha outro nome");
+    public AuthService(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder) {
+        this.usuarioRepository = usuarioRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
-    usuario.setUsername((usuario.getUsername())); 
-    usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Usuario usuario = usuarioRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("Usuario nao encontrado"));
 
-    if (usuario.getRoles() == null || usuario.getRoles().isEmpty()) {
-      usuario.setRoles(List.of("USER"));
+        return User.builder()
+                .username(usuario.getUsername())
+                .password(usuario.getPassword())
+                .roles(usuario.getRoles().toArray(new String[0]))
+                .build();
     }
 
-    return usuarioRepository.save(usuario);
-  }
+    public Usuario resgistrarUsuario(Usuario usuario) {
+        if (usuarioRepository.findByUsername(usuario.getUsername()).isPresent()) {
+            throw new Error("Username ja cadastrado, escolha outro nome.");
+        }
 
+        usuario.setUsername(usuario.getUsername());
+        usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
 
-  public String login(String username, String password) {
-    Usuario usuario = usuarioRepository.findByUsername(username)
-        .orElseThrow(() -> new UsernameNotFoundException("Usuario nao encontrado"));
-    if (!passwordEncoder.matches(password, usuario.getPassword())) {
-      throw new IllegalArgumentException("Senha errada");
+        if (usuario.getRoles() == null || usuario.getRoles().isEmpty()) {
+            usuario.setRoles(List.of("USER"));
+        }
+
+        return usuarioRepository.save(usuario);
     }
 
-    return genJWT(usuario.getUsername(), usuario.getRoles().toArray(new String[0]));
-  }
+    public String login(String username, String password) {
+        Usuario usuario = usuarioRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("Usuario nao encontrado"));
+        if (!passwordEncoder.matches(password, usuario.getPassword())) {
+            throw new IllegalArgumentException("Senha errada");
+        }
 
-  private String genJWT(String username, String[] roles) {
-    if (secretKey == null || secretKey.isEmpty()) {
-      throw new IllegalStateException("secretKey env nao criada ou encontrada");
+        return genJWT(usuario.getUsername(), usuario.getRoles().toArray(new String[0]));
     }
-    
-    Algorithm algorithm = Algorithm.HMAC512(secretKey);
-    return JWT.create()
-        .withSubject(username)
-        .withIssuedAt(new Date())
-        .withExpiresAt(new Date(System.currentTimeMillis() + 3600000))
-        .withClaim("roles", "USER")
-        .sign(algorithm);
-  }
+
+    private String genJWT(String username, String[] roles) {
+        if (secretKey == null || secretKey.isEmpty()) {
+            throw new IllegalStateException("secretKey env nao criada ou encontrada");
+        }
+
+        Algorithm algorithm = Algorithm.HMAC512(secretKey);
+        return JWT.create()
+                .withSubject(username)
+                .withIssuedAt(new Date())
+                .withExpiresAt(new Date(System.currentTimeMillis() + 3600000))
+                .withClaim("roles", String.join(",", roles))
+                .sign(algorithm);
+    }
 }

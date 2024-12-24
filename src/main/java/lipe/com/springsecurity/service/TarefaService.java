@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import lipe.com.springsecurity.dto.TarefaDTO;
 import lipe.com.springsecurity.model.Tarefa;
 import lipe.com.springsecurity.model.Usuario;
-// import lipe.com.springsecurity.model.Tarefa.StatusTarefa;
 import lipe.com.springsecurity.repository.TarefaRepository;
 import lipe.com.springsecurity.repository.UsuarioRepository;
 
@@ -28,7 +27,7 @@ public class TarefaService {
     tarefa.setTitulo(dto.getTitulo());
     tarefa.setDescricao(dto.getDescrisao());
     tarefa.setStatus(dto.getStatus());
-    tarefa.setUserId(tarefa.getUserId());
+    tarefa.setUserId(userId);
 
     return tarefaRepository.save(tarefa);
 

@@ -22,47 +22,51 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-  private final String secretKey = System.getenv("JWT_SECRET");
+    private final String secretKey = System.getenv("JWT_SECRET");
 
-  @Override
-protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain)
-        throws ServletException, IOException {
-    String token = resolveToken(request);
-    if (token != null && validateToken(token)) {
-        logger.info("Token válido encontrado: " + token);
-        UsernamePasswordAuthenticationToken auth = getAuthentication(token);
-        auth.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-        SecurityContextHolder.getContext().setAuthentication(auth);
-    } else {
-        logger.warn("Token inválido ou ausente");
+    @Override
+    protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response,
+            @NonNull FilterChain filterChain)
+            throws ServletException, IOException {
+        String token = resolveToken(request);
+        if (token != null && validateToken(token)) {
+            logger.info("Token valido encontrado: " + token);
+            UsernamePasswordAuthenticationToken auth = getAuthentication(token);
+            if (auth != null) {
+                logger.info("Auth configurada para o usuario: " + auth.getName());
+                auth.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                SecurityContextHolder.getContext().setAuthentication(auth);
+            } else {
+                logger.warn("Falha ao configurar a autenticar");
+            }
+        } else {
+            logger.warn("Token inválido ou ausente");
+        }
+        filterChain.doFilter(request, response);
     }
-    filterChain.doFilter(request, response);
-}
 
-
-  private String resolveToken(HttpServletRequest request) {
-    String bearerToken = request.getHeader("Authorization");
-    if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
-      return bearerToken.substring(7);
+    private String resolveToken(HttpServletRequest request) {
+        String bearerToken = request.getHeader("Authorization");
+        if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
+            return bearerToken.substring(7);
+        }
+        return null;
     }
-    return null;
-  }
 
-  private boolean validateToken(String token) {
-    try {
-      Algorithm algorithm = Algorithm.HMAC512(secretKey);
-      JWT.require(algorithm).build().verify(token);
-      return true;
-    } catch (JWTVerificationException e) {
-      return false;
+    private boolean validateToken(String token) {
+        try {
+            Algorithm algorithm = Algorithm.HMAC512(secretKey);
+            JWT.require(algorithm).build().verify(token);
+            return true;
+        } catch (JWTVerificationException e) {
+            return false;
+        }
     }
-  }
 
-  private UsernamePasswordAuthenticationToken getAuthentication(String token) {
-    DecodedJWT decodedJWT = JWT.decode(token);
-    String username = decodedJWT.getSubject();
-    List<GrantedAuthority> authorities = List.of(new SimpleGrantedAuthority("USER"));
-    return new UsernamePasswordAuthenticationToken(username, null, authorities);
-  }
-
+    private UsernamePasswordAuthenticationToken getAuthentication(String token) {
+        DecodedJWT decodedJWT = JWT.decode(token);
+        String username = decodedJWT.getSubject();
+        List<GrantedAuthority> authorities = List.of(new SimpleGrantedAuthority("USER"));
+        return new UsernamePasswordAuthenticationToken(username, null, authorities);
+    }
 }
