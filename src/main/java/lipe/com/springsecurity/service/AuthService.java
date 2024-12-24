@@ -21,7 +21,8 @@ import lipe.com.springsecurity.repository.UsuarioRepository;
 
 @Service
 public class AuthService implements UserDetailsService {
-  private final String secretKey = System.getenv("JWT_SECRET");
+  String secretKey = System.getenv("JWT_SECRET");
+  private static final Logger logger = LoggerFactory.getLogger(AuthService.class);
 
   private final UsuarioRepository usuarioRepository;
   private final PasswordEncoder passwordEncoder;
@@ -44,19 +45,21 @@ public class AuthService implements UserDetailsService {
   }
 
   public Usuario resgistrarUsuario(Usuario usuario) {
-    Optional<Usuario> existingUser = usuarioRepository.findByUsername(usuario.getUsername());
-    if (existingUser.isPresent()) {
-      throw new IllegalArgumentException("Username já cadastrado, escolha outro nome");
+
+    if (usuarioRepository.findByUsername(usuario.getUsername()) != null) {
+      throw new Error("Username ja cadastrado, escolha outro nome");
     }
 
+    usuario.setUsername((usuario.getUsername())); 
     usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
 
     if (usuario.getRoles() == null || usuario.getRoles().isEmpty()) {
       usuario.setRoles(List.of("USER"));
     }
-    Usuario savedUser = usuarioRepository.save(usuario);
-    return savedUser;
+
+    return usuarioRepository.save(usuario);
   }
+
 
   public String login(String username, String password) {
     Usuario usuario = usuarioRepository.findByUsername(username)
@@ -64,22 +67,21 @@ public class AuthService implements UserDetailsService {
     if (!passwordEncoder.matches(password, usuario.getPassword())) {
       throw new IllegalArgumentException("Senha errada");
     }
-    String token = genJWT(usuario.getUsername(), usuario.getRoles().toArray(new String[0]));
-    return token;
+
+    return genJWT(usuario.getUsername(), usuario.getRoles().toArray(new String[0]));
   }
 
   private String genJWT(String username, String[] roles) {
-
     if (secretKey == null || secretKey.isEmpty()) {
       throw new IllegalStateException("secretKey env nao criada ou encontrada");
     }
-
-    Algorithm algorithm = Algorithm.HMAC256(secretKey);
+    
+    Algorithm algorithm = Algorithm.HMAC512(secretKey);
     return JWT.create()
         .withSubject(username)
         .withIssuedAt(new Date())
-        .withExpiresAt(new Date(System.currentTimeMillis() + 3600000)) // 1 hour expiry
-        .withArrayClaim("roles", roles)
+        .withExpiresAt(new Date(System.currentTimeMillis() + 3600000))
+        .withClaim("roles", "USER")
         .sign(algorithm);
   }
 }

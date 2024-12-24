@@ -1,5 +1,6 @@
 package lipe.com.springsecurity.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,13 +25,13 @@ public class AuthController {
 
   @PostMapping("/registrar")
   public ResponseEntity<Usuario> registrar(@RequestBody Usuario novoUsuario) {
-    Usuario registeredUser = authService.resgistrarUsuario(novoUsuario);
+    authService.resgistrarUsuario(novoUsuario);
 
-    return ResponseEntity.ok(registeredUser);
+    return ResponseEntity.ok(novoUsuario);
   }
 
   @PostMapping("/login")
-  public ResponseEntity<JwtResponse> login(@RequestBody LoginUsers loginUsers) {
+  public ResponseEntity<?> login(@RequestBody LoginUsers loginUsers) {
     String token = authService.login(loginUsers.getUsername(), loginUsers.getPassword());
     return ResponseEntity.ok(new JwtResponse(token));
   }

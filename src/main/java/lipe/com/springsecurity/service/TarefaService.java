@@ -28,7 +28,7 @@ public class TarefaService {
     tarefa.setTitulo(dto.getTitulo());
     tarefa.setDescricao(dto.getDescrisao());
     tarefa.setStatus(dto.getStatus());
-    tarefa.setUserId(userId);
+    tarefa.setUserId(tarefa.getUserId());
 
     return tarefaRepository.save(tarefa);
 

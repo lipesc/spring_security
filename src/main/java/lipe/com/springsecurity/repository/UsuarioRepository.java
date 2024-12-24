@@ -12,5 +12,4 @@ import lipe.com.springsecurity.model.Usuario;
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
   Optional<Usuario> findByUsername(String username);
 
-  // Optional<Usuario> findByUsername(Long userId);
 }
