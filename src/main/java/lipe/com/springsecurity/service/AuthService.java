@@ -15,13 +15,15 @@ import org.springframework.stereotype.Service;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 
+import lipe.com.springsecurity.exception.CustomServetLogin;
+import lipe.com.springsecurity.exception.CustomServetRegistrar;
 import lipe.com.springsecurity.model.Usuario;
 import lipe.com.springsecurity.repository.UsuarioRepository;
 
 @Service
 public class AuthService implements UserDetailsService {
     String secretKey = System.getenv("JWT_SECRET");
-    private static final Logger logger = LoggerFactory.getLogger(AuthService.class);
+    // private static final Logger logger = LoggerFactory.getLogger(AuthService.class);
 
     private final UsuarioRepository usuarioRepository;
     private final PasswordEncoder passwordEncoder;
@@ -45,7 +47,7 @@ public class AuthService implements UserDetailsService {
 
     public Usuario resgistrarUsuario(Usuario usuario) {
         if (usuarioRepository.findByUsername(usuario.getUsername()).isPresent()) {
-            throw new Error("Username ja cadastrado, escolha outro nome.");
+            throw new CustomServetRegistrar("Username ja cadastrado, escolha outro nome.");
         }
 
         usuario.setUsername(usuario.getUsername());
@@ -60,9 +62,9 @@ public class AuthService implements UserDetailsService {
 
     public String login(String username, String password) {
         Usuario usuario = usuarioRepository.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException("Usuario nao encontrado"));
+                .orElseThrow(() -> new CustomServetLogin("Usuario nao encontrado"));
         if (!passwordEncoder.matches(password, usuario.getPassword())) {
-            throw new IllegalArgumentException("Senha errada");
+            throw new CustomServetLogin("Senha errada");
         }
 
         return genJWT(usuario.getUsername(), usuario.getRoles().toArray(new String[0]));

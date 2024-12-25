@@ -42,11 +42,9 @@ public class TarefaController {
   @PostMapping
   public ResponseEntity<Tarefa> criarTarefa(@Validated @RequestBody TarefaDTO dto,
       @AuthenticationPrincipal UserDetails userDetails) {
-    if (userDetails == null) {
-      // se tiver nulo, obter no contexto de segurança
-      String username = SecurityContextHolder.getContext().getAuthentication().getName();
-      userDetails = authService.loadUserByUsername(username);
-    }
+
+    String username = SecurityContextHolder.getContext().getAuthentication().getName();
+    userDetails = authService.loadUserByUsername(username);
 
     if (userDetails == null) {
       logger.warn("Usuario nao autenticado");
@@ -55,27 +53,11 @@ public class TarefaController {
 
     logger.info("Usuario autenticado: " + userDetails.getUsername());
 
-    Optional<Usuario> userOp = usuarioRepository.findByUsername(userDetails.getUsername());
-    if (!userOp.isPresent()) {
-      logger.warn("Usuario nao encontrado: " + userDetails.getUsername());
-      return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-    }
+    Long usersId = usuarioRepository.findByUsername(userDetails.getUsername()).get().getId();
 
-    Long userId = userOp.get().getId();
-    Tarefa tarefa = tarefaService.criTarefa(dto, userId);
+    Tarefa tarefa = tarefaService.criTarefa(dto, usersId);
 
     return ResponseEntity.status(HttpStatus.CREATED).body(tarefa);
   }
 
-  @ExceptionHandler(IllegalArgumentException.class)
-  public ResponseEntity<String> handleIllegalArgumentException(IllegalArgumentException e) {
-    logger.error("Illegal argument exception: {}", e.getMessage(), e);
-    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-  }
-
-  @ExceptionHandler(Exception.class)
-  public ResponseEntity<String> handleException(Exception e) {
-    logger.error("Exception: {}", e.getMessage(), e);
-    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An unexpected error occurred");
-  }
 }

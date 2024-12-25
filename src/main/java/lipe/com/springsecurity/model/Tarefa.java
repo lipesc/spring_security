@@ -42,10 +42,10 @@ public class Tarefa {
   public Tarefa() {
   }
 
-  public Tarefa(Long id, Long user_id, String titulo, String descricao, StatusTarefa status,
+  public Tarefa(Long id, Long userId, String titulo, String descricao, StatusTarefa status,
       LocalDateTime date_criacao) {
     this.id = id;
-    this.userId = user_id;
+    this.userId = userId;
     this.titulo = titulo;
     this.descricao = descricao;
     this.status = status;
