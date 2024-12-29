@@ -17,7 +17,7 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
     - name: Build with Maven
-      run: mvn clean test
+      run: mvn clean package
       env: 
         SERVER_PORT: ${{ secrets.SERVER_PORT }}
         DB_URL: ${{ secrets.DB_URL }}
@@ -40,6 +40,6 @@ jobs:
         APPLICATION_NAME: fesprin
         ENVIRONMENT_NAME: Fesprin-env
       run: |
-        zip -r application.zip .
-        aws elasticbeanstalk create-application-version --application-name $APPLICATION_NAME --version-label $GITHUB_SHA --source-bundle S3Bucket="$APPLICATION_NAME",S3Key="application.zip"
+        jar_file=$(ls target/*.jar)
+        aws elasticbeanstalk create-application-version --application-name $APPLICATION_NAME --version-label $GITHUB_SHA --source-bundle S3Bucket="$APPLICATION_NAME",S3Key="$jar_file"
         aws elasticbeanstalk update-environment --environment-name $ENVIRONMENT_NAME --version-label $GITHUB_SHA
