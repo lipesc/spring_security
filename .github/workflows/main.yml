@@ -19,16 +19,25 @@ jobs:
     - name: Build with Maven
       run: mvn clean package
       env:
+        ACTIONS_STEP_DEBUG: true
         SERVER_PORT: ${{ secrets.SERVER_PORT }}
         DB_URL: ${{ secrets.DB_URL }}
         DB_USERNAME: ${{ secrets.DB_USERNAME }}
         DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+    - name: List target directory
+      run: ls -al target/
+    - name: Verify AWS CLI
+      run: aws --version
+    - name: Configure AWS CLI
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
     - name: Upload to S3
       run: |
-        # Ensure that the file exists
-        ls target/
-        # Upload the jar file to the S3 bucket
-        aws s3 cp target/*.jar s3://elasticbeanstalk-us-east-1-339712862508/
+        jar_file=$(ls target/*.jar | head -n 1)
+        aws s3 cp "$jar_file" s3://elasticbeanstalk-us-east-1-339712862508/
   deploy:
     needs: test
     runs-on: ubuntu-latest
