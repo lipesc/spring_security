@@ -41,5 +41,5 @@ jobs:
           ENVIRONMENT_NAME: Fesprin-env
         run: |
           jar_file=target/fesprin.jar
-          aws elasticbeanstalk create-application-version --application-name $APPLICATION_NAME --version-label $GITHUB_SHA --source-bundle S3Bucket="$APPLICATION_NAME",S3Key="$jar_file"
+          aws elasticbeanstalk create-application-version --application-name $APPLICATION_NAME --version-label $GITHUB_SHA --source-bundle S3Bucket="elasticbeanstalk-us-east-1-339712862508",S3Key="$jar_file"
           aws elasticbeanstalk update-environment --environment-name $ENVIRONMENT_NAME --version-label $GITHUB_SHA
