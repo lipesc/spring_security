@@ -36,10 +36,12 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       - name: Deploy to Elastic Beanstalk
-        env:
-          APPLICATION_NAME: fesprin
-          ENVIRONMENT_NAME: Fesprin-env
         run: |
-          jar_file=target/fesprin.jar
-          aws elasticbeanstalk create-application-version --application-name $APPLICATION_NAME --version-label $GITHUB_SHA --source-bundle S3Bucket="elasticbeanstalk-us-east-1-339712862508",S3Key="$jar_file"
-          aws elasticbeanstalk update-environment --environment-name $ENVIRONMENT_NAME --version-label $GITHUB_SHA
+          aws elasticbeanstalk create-application-version \
+            --application-name fesprin \
+            --version-label ${{ github.sha }} \
+            --source-bundle S3Bucket="elasticbeanstalk-us-east-1-339712862508",S3Key="fesprin.zip"
+          
+          aws elasticbeanstalk update-environment \
+            --environment-name Fesprin-env \
+            --version-label ${{ github.sha }}
