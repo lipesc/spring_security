@@ -38,12 +38,11 @@ public class SecurityConfig {
     public UrlBasedCorsConfigurationSource corsConfigutionSource() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.addAllowedOrigin("http://fespring.us-east-1.elasticbeanstalk.com");
+        config.addAllowedOriginPattern("*"); 
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
-
         return source;
     }
 }
