@@ -2,6 +2,9 @@ package lipe.com.springsecurity.service;
 
 import java.util.List;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import lipe.com.springsecurity.dto.TarefaDTO;
@@ -15,13 +18,26 @@ public class TarefaService {
 
   private final TarefaRepository tarefaRepository;
   private final UsuarioRepository usuarioRepository;
+  private final AuthService authService;
 
-  public TarefaService(TarefaRepository tarefaRepository, UsuarioRepository usuarioRepository) {
+  public TarefaService(TarefaRepository tarefaRepository, UsuarioRepository usuarioRepository,
+      AuthService authService) {
     this.tarefaRepository = tarefaRepository;
     this.usuarioRepository = usuarioRepository;
+    this.authService = authService;
+
   }
 
-  public Tarefa criTarefa(TarefaDTO dto, Long userId) {
+  public Tarefa criTarefa(TarefaDTO dto) {
+    String username = SecurityContextHolder.getContext().getAuthentication().getName();
+    UserDetails userDetails = authService.loadUserByUsername(username);
+
+    if (userDetails == null) {
+      throw new RuntimeException("nao autenticado");
+
+    }
+
+    Long userId = usuarioRepository.findByUsername(userDetails.getUsername()).get().getId();
 
     Tarefa tarefa = new Tarefa();
     tarefa.setTitulo(dto.getTitulo());

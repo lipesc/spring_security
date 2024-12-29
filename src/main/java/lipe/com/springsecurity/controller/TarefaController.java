@@ -40,24 +40,15 @@ public class TarefaController {
   }
 
   @PostMapping
-  public ResponseEntity<Tarefa> criarTarefa(@Validated @RequestBody TarefaDTO dto,
-      @AuthenticationPrincipal UserDetails userDetails) {
-
-    String username = SecurityContextHolder.getContext().getAuthentication().getName();
-    userDetails = authService.loadUserByUsername(username);
-
-    if (userDetails == null) {
-      logger.warn("Usuario nao autenticado");
+  public ResponseEntity<Tarefa> criarTarefa(@Validated @RequestBody TarefaDTO dto) {
+    try {
+      Tarefa tarefa = tarefaService.criTarefa(dto);
+      return ResponseEntity.status(HttpStatus.CREATED).body(tarefa);
+    } catch (RuntimeException e) {
+      // TODO: handle exception
+      logger.warn(e.getMessage());
       return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
     }
-
-    logger.info("Usuario autenticado: " + userDetails.getUsername());
-
-    Long usersId = usuarioRepository.findByUsername(userDetails.getUsername()).get().getId();
-
-    Tarefa tarefa = tarefaService.criTarefa(dto, usersId);
-
-    return ResponseEntity.status(HttpStatus.CREATED).body(tarefa);
   }
 
 }
