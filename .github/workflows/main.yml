@@ -19,10 +19,14 @@ jobs:
     - name: Build with Maven
       run: mvn clean package
       env:
-          SERVER_PORT: ${{ secrets.SERVER_PORT }}
-          DB_URL: ${{ secrets.DB_URL }}
-          DB_USERNAME: ${{ secrets.DB_USERNAME }}
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+        SERVER_PORT: ${{ secrets.SERVER_PORT }}
+        DB_URL: ${{ secrets.DB_URL }}
+        DB_USERNAME: ${{ secrets.DB_USERNAME }}
+        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+    - name: Upload to S3
+      run: |
+        aws s3 cp target/*.jar s3://elasticbeanstalk-us-east-1-339712862508/
+
   deploy:
     needs: test
     runs-on: ubuntu-latest
@@ -39,7 +43,7 @@ jobs:
         APPLICATION_NAME: fesprin
         ENVIRONMENT_NAME: Fesprin-env
         S3_BUCKET: elasticbeanstalk-us-east-1-339712862508
-        JAR_FILE: 1735429697605-springsecurity-0.0.1-SNAPSHOT.jar
       run: |
-        aws elasticbeanstalk create-application-version --application-name $APPLICATION_NAME --version-label $GITHUB_SHA --source-bundle S3Bucket=$S3_BUCKET,S3Key=$JAR_FILE
+        jar_file=$(aws s3 ls s3://elasticbeanstalk-us-east-1-339712862508/ | sort | tail -n 1 | awk '{print $4}')
+        aws elasticbeanstalk create-application-version --application-name $APPLICATION_NAME --version-label $GITHUB_SHA --source-bundle S3Bucket=$S3_BUCKET,S3Key=$jar_file
         aws elasticbeanstalk update-environment --environment-name $ENVIRONMENT_NAME --version-label $GITHUB_SHA
