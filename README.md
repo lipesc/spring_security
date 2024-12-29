@@ -17,6 +17,10 @@ Boas práticas de segurança\
 - Spring Data JPA
 - MySQL
 - Spring Security oauth2
+- aws elastic beanstalk
+- aws rds mysql
+# domain ativo
+http://fespring.us-east-1.elasticbeanstalk.com/doc
 
 ## Funcionalidades
 Cadastro de usuário\
