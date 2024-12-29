@@ -56,5 +56,7 @@ jobs:
         S3_BUCKET: elasticbeanstalk-us-east-1-339712862508
       run: |
         jar_file=$(aws s3 ls s3://elasticbeanstalk-us-east-1-339712862508/ | sort | tail -n 1 | awk '{print $4}')
-        aws elasticbeanstalk create-application-version --application-name $APPLICATION_NAME --version-label $GITHUB_SHA --source-bundle S3Bucket=$S3_BUCKET,S3Key=$jar_file
-        aws elasticbeanstalk update-environment --environment-name $ENVIRONMENT_NAME --version-label $GITHUB_SHA
+        version_label="${GITHUB_SHA}-$(date +%s)"  # Add a timestamp to make it unique
+        aws elasticbeanstalk create-application-version --application-name $APPLICATION_NAME --version-label $version_label --source-bundle S3Bucket=$S3_BUCKET,S3Key=$jar_file
+        aws elasticbeanstalk update-environment --environment-name $ENVIRONMENT_NAME --version-label $version_label
+
