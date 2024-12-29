@@ -19,6 +19,7 @@ jobs:
     - name: Build with Maven
       run: mvn clean test
       env: 
+        SERVER_PORT: ${{ secrets.SERVER_PORT }}
         DB_URL: ${{ secrets.DB_URL }}
         DB_USERNAME: ${{ secrets.DB_USERNAME }}
         DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
