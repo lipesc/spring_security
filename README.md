@@ -21,6 +21,10 @@ Boas práticas de segurança\
 - aws rds mysql
 # domain ativo
 http://fespring.us-east-1.elasticbeanstalk.com/doc
+**desativado devido ao preço
+
+![image](https://github.com/user-attachments/assets/b4c54655-5fd1-4d13-b6e2-a45e0831367c)
+
 
 ## Funcionalidades
 Cadastro de usuário\
