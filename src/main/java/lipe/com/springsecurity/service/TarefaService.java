@@ -1,7 +1,9 @@
 package lipe.com.springsecurity.service;
 
 import java.util.List;
+import java.util.Optional;
 
+import org.apache.tomcat.util.threads.TaskThreadFactory;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -49,13 +51,18 @@ public class TarefaService {
 
   }
 
-  public List<Tarefa> listarTarefas(String userName) {
+  public List<Tarefa> listarTarefasAutenticado() {
+    String username = SecurityContextHolder.getContext().getAuthentication().getName();
+    UserDetails userDetails = authService.loadUserByUsername(username);
 
-    Usuario usuario = usuarioRepository.findByUsername(userName).orElseThrow();
+    if (userDetails == null) {
+      throw new RuntimeException("Usuario nao autenticado");
+    }
 
-    return tarefaRepository.findByUserId(usuario.getId());
-
+    Long userId = usuarioRepository.findByUsername(userDetails.getUsername()).get().getId();
+    return tarefaRepository.findByUserId(userId);
   }
+  
 
   public Tarefa atualizarStatus(Long id, TarefaDTO updateStatus) {
 
